@@ -32,6 +32,8 @@
 #include <QtCore/QTranslator>
 #include <QtCore/QStandardPaths>
 
+#include "lua/sol.hpp"
+
 #ifdef PNG_WRITE_APNG_SUPPORTED
 class RecordingThread : public QThread {
     Q_OBJECT
@@ -503,6 +505,12 @@ private:
     void contextRecent(const QPoint &posa);
     void contextMemWidget(const QPoint &posa, uint32_t addr);
 
+    // Lua
+    void initLuaThings();
+    void loadLuaScript();
+    void saveLuaScript();
+    void runLuaScript();
+
 #ifdef _WIN32
     // Win32 Console Toggle
     void toggleConsole();
@@ -586,6 +594,8 @@ private:
     QMenu *m_menuDebug;
 
     KeyHistoryWidget *m_windowKeys = Q_NULLPTR;
+
+    sol::state lua;
 
     bool m_isSendingRom = false;
     QString m_dragRom;
