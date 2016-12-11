@@ -1927,6 +1927,12 @@ void MainWindow::recentSelectAll() {
 // Autotester things
 // ------------------------------------------------
 
+void MainWindow::pressKeyFromName(const std::string& key)
+{
+    autotester::pressKeyFromName(key);
+    autotester::stepCallback();
+}
+
 void MainWindow::autotesterErr(int errCode) {
     QString errMsg;
     switch (errCode) {
