@@ -93,6 +93,7 @@ void asic_init(void) {
 void asic_free(void) {
     lcd_gui_callback = NULL;
     lcd_gui_callback_data = NULL;
+    usb_free();
     mem_free();
     gui_console_printf("[CEmu] Freed ASIC.\n");
 }

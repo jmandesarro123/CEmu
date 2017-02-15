@@ -225,7 +225,7 @@ void sched_set_clocks(enum clock_id count, uint32_t *new_rates) {
 }
 
 void sched_reset(void) {
-    const uint32_t def_rates[CLOCK_NUM_ITEMS] = { 48000000, 48000000, 24000000, 12000000, 6000000, 32768, 1 };
+    const uint32_t def_rates[CLOCK_NUM_ITEMS] = { 48000000, 48000000, 24000000, 12000000, 6000000, 32768, 8000, 1 };
 
     memset(&sched, 0, sizeof sched);
     memcpy(sched.clockRates, def_rates, sizeof(def_rates));
